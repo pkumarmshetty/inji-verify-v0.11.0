@@ -177,7 +177,7 @@ export const verifiableClaims: claim[] = [
       input_descriptors: [
         {
           id: "id card credential",
-          format: { ldp_vc: { proof_type: ["Ed25519Signature2018"] } },
+          format: { ldp_vc: { proof_type: ["Ed25519Signature2020"] } },
           constraints: {
             fields: [
               {

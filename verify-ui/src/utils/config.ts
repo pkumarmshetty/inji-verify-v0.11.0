@@ -195,6 +195,7 @@ export const verifiableClaims: claim[] = [
   }
 ];
 
+
 export const initializeClaims = async () => {
   try {
     const response = await fetch(window._env_.VERIFIABLE_CLAIMS_CONFIG_URL);

@@ -202,7 +202,7 @@ export const initializeClaims = async () => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    verifiableClaims = data.verifiableClaims as claim[];
+    // verifiableClaims = data.verifiableClaims as claim[];
   } catch (error) {
     console.error("Error loading claims from ConfigMap:", error);
   }

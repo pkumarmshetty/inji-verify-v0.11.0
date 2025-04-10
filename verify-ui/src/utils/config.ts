@@ -1,5 +1,6 @@
 import {AlertInfo, claim, VerificationStepsContentType} from "../types/data-types";
 import i18next from 'i18next';
+import certImage from '../assets/defaultTheme/cert.png';
 
 export const Pages = {
     Home: "/",
@@ -163,7 +164,37 @@ export const CONSTRAINTS_IDEAL_HEIGHT = 1440;
 export const CONSTRAINTS_IDEAL_FRAME_RATE = 30;
 export const FRAME_PROCESS_INTERVAL_MS = 100;
 export const THROTTLE_FRAMES_PER_SEC = 500; // Throttle frame processing to every 500ms (~2 frames per second)
-export let verifiableClaims: claim[] = [];
+export const verifiableClaims: claim[] = [
+  {
+    logo: certImage,
+    name: "Graduation Credential",
+    type: "GraduationCredential",
+    essential: true,
+    definition: {
+      purpose:
+        "Relying party is requesting your digital ID for the purpose of Self-Authentication",
+      format: { ldp_vc: { proof_type: ["Ed25519Signature2018"] } },
+      input_descriptors: [
+        {
+          id: "id card credential",
+          format: { ldp_vc: { proof_type: ["Ed25519Signature2018"] } },
+          constraints: {
+            fields: [
+              {
+                path: ["$.type"],
+                filter: { 
+                  type: "object", 
+                  pattern: "GraduationCredential" 
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  }
+];
+
 export const initializeClaims = async () => {
   try {
     const response = await fetch(window._env_.VERIFIABLE_CLAIMS_CONFIG_URL);

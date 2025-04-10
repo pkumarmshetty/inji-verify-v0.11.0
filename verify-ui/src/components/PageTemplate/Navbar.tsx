@@ -92,14 +92,14 @@ const DesktopMenu = () => {
                         {t("verifyCredentials")}
                     </a>
                 </li>
-                <li className="relative">
+                {/* <li className="relative">
                     <button id="help-button"
                        onClick={() => setShowHelp(show=>!show)}
                        className="inline-flex items-center cursor-pointer py-2 rounded text-black">
                         {t("help")} <MdExpandLess className={`mx-1.5 ${showHelp ? "" : "rotate-180"}`}/>
                     </button>
                     {showHelp && (<SubMenu/>)}
-                </li>
+                </li> */}
             </ul>
         </div>
     );
